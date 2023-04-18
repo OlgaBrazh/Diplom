@@ -24,9 +24,21 @@ Git, JDK 11, IntelliJ IDEA, Docker
 
 1. Запустить контейнеры с базой данных (MySQL, PostgreSQL) и симулятором банковских сервисов: в терминале из корня проекта выполнить команду docker-compose up
 
-2. Запустить SUT: в новой вкладке терминала из корня проекта выполнить команду java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar
+2. Запустить SUT: в новой вкладке терминала из корня проекта выполнить команды 
 
-3. Запустить автотесты: в новой вкладке терминала выполнить команду ./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"
+2.1. для запуска SUT c использованием базы данных mysql:  
+java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar
+
+2.2. для запуска с использованием базы данных postgresql:  
+java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar
+
+3. Запустить автотесты: в новой вкладке терминала выполнить команды
+
+3.1. для запуска тестов c использованием базы данных mysql:  
+./gradlew clean test "-Ddb.url=jdbc:mysql://localhost:3306/app"
+
+3.2. для запуска с использованием базы данных postgresql:  
+./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"
 
 4. Для создания отчета Allure запустить команду   
 
