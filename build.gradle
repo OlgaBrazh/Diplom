@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.9.6'
 }
 
 group 'org.example'
@@ -10,6 +11,15 @@ sourceCompatibility = 11
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
+
+allure {
+
+    version = '2.16.1'
+
+    useJUnit5 {
+        version = '2.16.1'
+    }
+}
 
 repositories {
     mavenCentral()
@@ -24,6 +34,7 @@ dependencies {
         testImplementation 'io.rest-assured:rest-assured:5.2.0'
         testImplementation 'com.google.code.gson:gson:2.8.6'
         testImplementation 'mysql:mysql-connector-java:8.0.19'
+        testImplementation 'io.qameta.allure:allure-selenide:2.16.1'
         testImplementation 'commons-dbutils:commons-dbutils:1.7'
         compileOnly 'org.projectlombok:lombok:1.18.24'
         annotationProcessor 'org.projectlombok:lombok:1.18.20'

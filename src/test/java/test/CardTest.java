@@ -1,8 +1,12 @@
 package test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DataHelper;
 import data.SQLHelper;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.PaymentPage;
@@ -13,9 +17,20 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CardTest {
 
+    @BeforeAll
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+
     @BeforeEach
     void setUp() {
         open("http://localhost:8080");
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     @Test
