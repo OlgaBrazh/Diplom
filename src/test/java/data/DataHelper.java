@@ -85,7 +85,7 @@ public class DataHelper {
 
     /*Метод для получения значения прошедшего года*/
     public static String getPastYear() {
-        return LocalDate.now().minusYears(1).format(DateTimeFormatter.ofPattern("yy"));
+        return LocalDate.now().minusYears(2).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     /*Метод для получения валидного значения поля Владелец*/
@@ -115,11 +115,12 @@ public class DataHelper {
 
     /*Метод для получения нулевого значения поля CVC*/
     public static String getNullCVC() {
+
         return "000";
     }
 
     /*Метод для получения комбинации из трех специальных символов для введения в поле CVC*/
-    public static String getSpecialSymbolsCVC() {
+    public static String getSpecialSymbols() {
         Random random = new Random();
         String[] specialSymbols = new String[]{"!", "\"", "#", "$", "%", "&"};
         var Symbol1 = specialSymbols[random.nextInt(6)];
@@ -141,5 +142,78 @@ public class DataHelper {
     public static CardInfo getValidCardInfo() {
         return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getOwner(), generateCVC());
     }
+
+    public static CardInfo getCardInfoNotRegisteredCard() {
+        return new CardInfo(getNotRegisteredCardNumber(), getValidMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoLessCardNumber() {
+        return new CardInfo(getNotValidLessCardNumber(), getValidMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoEmptyCardNumber() {
+        return new CardInfo("", getValidMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoNullCardNumber() {
+        return new CardInfo(getNotValidNullCardNumber(), getValidMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoNullMonth() {
+        return new CardInfo(getValidCard1Number(), getNullMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoEmptyMonth() {
+        return new CardInfo(getValidCard1Number(), "", getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoPastMonth() {
+        return new CardInfo(getValidCard1Number(), getPastMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoIncorrectMonth() {
+        return new CardInfo(getValidCard1Number(), getIncorrectMonth(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoSpecialSymbolsInMonth() {
+        return new CardInfo(getValidCard1Number(), getSpecialSymbolsMonthAndYear(), getValidYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoEmptyYear() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), "", getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoExpiredYear() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getPastYear(), getOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoEmptyOwner() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), "", generateCVC());
+    }
+
+    public static CardInfo getCardInfoNumbersOwner() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getIncorrectOwner(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoSpecialSymbolsInOwner() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getSpecialSymbols(), generateCVC());
+    }
+
+    public static CardInfo getCardInfoEmptyCVC() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getOwner(), "");
+    }
+
+    public static CardInfo getCardInfoNullCVC() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getOwner(), getNullCVC());
+    }
+
+    public static CardInfo getCardInfoSpecialSymbolsInCVC() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getOwner(), getSpecialSymbols());
+    }
+
+    public static CardInfo getCardInfoLessSymbolsInCVC() {
+        return new CardInfo(getValidCard1Number(), getValidMonth(), getValidYear(), getOwner(), generateCVCLessSymbols());
+    }
+
 
 }

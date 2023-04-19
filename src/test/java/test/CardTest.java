@@ -38,7 +38,7 @@ public class CardTest {
 
         var paymentPage = new StartPage().goToPaymentPage();
         var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingAllFieldsValidValues(cardInfo);
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getButtonRequestBank();
         paymentPage.getNotificationOk();
         var paymentStatus = SQLHelper.getPaymentStatus();
@@ -51,7 +51,7 @@ public class CardTest {
 
         var creditPage = new StartPage().goToCreditPage();
         var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingAllFieldsValidValues(cardInfo);
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getButtonRequestBank();
         creditPage.getNotificationOk();
         var creditStatus = SQLHelper.getCreditStatus();
@@ -63,8 +63,8 @@ public class CardTest {
     public void shouldBuyByPaymentCardNotRegisteredNegativeTest1() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCardNumberNotRegistered(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNotRegisteredCard();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getButtonRequestBank();
         paymentPage.getNotificationError();
 
@@ -80,8 +80,8 @@ public class CardTest {
     public void shouldBuyByCreditCardNotRegisteredNegativeTest2() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCardNumberNotRegistered(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNotRegisteredCard();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getButtonRequestBank();
         creditPage.getNotificationError();
 
@@ -92,8 +92,8 @@ public class CardTest {
     public void shouldBuyByPaymentCardLessCardNumberNegativeTest3() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCardNumberLessNumber(cardInfo);
+        var cardInfo = DataHelper.getCardInfoLessCardNumber();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCardNumberNotValid();
 
     }
@@ -102,8 +102,8 @@ public class CardTest {
     public void shouldBuyByCreditLessCardNumberNegativeTest4() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCardNumberLessNumber(cardInfo);
+        var cardInfo = DataHelper.getCardInfoLessCardNumber();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCardNumberNotValid();
 
     }
@@ -112,8 +112,8 @@ public class CardTest {
     public void shouldBuyByPaymentCardNumberEmptyNegativeTest5() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCardNumberEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyCardNumber();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCardNumberEmpty();
 
     }
@@ -122,8 +122,8 @@ public class CardTest {
     public void shouldBuyByCreditCardNumberEmptyNegativeTest6() {
 
         var creditPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCardNumberEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyCardNumber();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCardNumberEmpty();
 
     }
@@ -132,8 +132,8 @@ public class CardTest {
     public void shouldBuyByPaymentCardNumberNullNegativeTest7() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCardNumberNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullCardNumber();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCardNumberNotValid();
 
     }
@@ -142,8 +142,8 @@ public class CardTest {
     public void shouldBuyByCreditCardNumberNullNegativeTest8() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCardNumberNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullCardNumber();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCardNumberNotValid();
 
     }
@@ -152,8 +152,8 @@ public class CardTest {
     public void shouldBuyByPaymentMonthNullNegativeTest9() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingMonthNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullMonth();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorMonthNotValid();
 
     }
@@ -162,8 +162,8 @@ public class CardTest {
     public void shouldBuyByCreditMonthNullNegativeTest10() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingMonthNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullMonth();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorMonthNotValid();
 
     }
@@ -172,8 +172,8 @@ public class CardTest {
     public void shouldBuyByPaymentMonthEmptyNegativeTest11() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingMonthEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyMonth();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorMonthEmpty();
 
     }
@@ -182,8 +182,8 @@ public class CardTest {
     public void shouldBuyByCreditMonthEmptyNegativeTest12() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingMonthEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyMonth();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorMonthEmpty();
 
     }
@@ -192,8 +192,8 @@ public class CardTest {
     public void shouldBuyByPaymentPastMonthNegativeTest13() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingMonthPast(cardInfo);
+        var cardInfo = DataHelper.getCardInfoPastMonth();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorMonthNotValid();
 
     }
@@ -202,9 +202,8 @@ public class CardTest {
     public void shouldBuyByCreditPastMonthNegativeTest14() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingMonthPast(cardInfo);
-        //creditPage.getErrorMonthPast();
+        var cardInfo = DataHelper.getCardInfoPastMonth();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorMonthNotValid();
     }
 
@@ -212,8 +211,8 @@ public class CardTest {
     public void shouldBuyByPaymentIncorrectMonthNegativeTest15() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingMonthIncorrect(cardInfo);
+        var cardInfo = DataHelper.getCardInfoIncorrectMonth();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorMonthNotValid();
 
     }
@@ -222,8 +221,8 @@ public class CardTest {
     public void shouldBuyByCreditIncorrectMonthNegativeTest16() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingMonthIncorrect(cardInfo);
+        var cardInfo = DataHelper.getCardInfoIncorrectMonth();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorMonthNotValid();
 
     }
@@ -232,8 +231,8 @@ public class CardTest {
     public void shouldBuyByPaymentMonthSpecialSymbolsNegativeTest17() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingMonthSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInMonth();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorMonthSpecialSymbols();
 
     }
@@ -242,8 +241,8 @@ public class CardTest {
     public void shouldBuyByCreditMonthSpecialSymbolsNegativeTest18() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingMonthSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInMonth();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorMonthSpecialSymbols();
 
     }
@@ -252,8 +251,8 @@ public class CardTest {
     public void shouldBuyByPaymentYearEmptyNegativeTest19() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingYearEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyYear();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorYearEmpty();
 
     }
@@ -262,8 +261,8 @@ public class CardTest {
     public void shouldBuyByPaymentYearEmptyNegativeTest20() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingYearEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyYear();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorYearEmpty();
 
     }
@@ -272,8 +271,8 @@ public class CardTest {
     public void shouldBuyByPaymentYearExpiredNegativeTest21() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingYearExpired(cardInfo);
+        var cardInfo = DataHelper.getCardInfoExpiredYear();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorYearExpired();
 
     }
@@ -282,8 +281,8 @@ public class CardTest {
     public void shouldBuyByCreditYearExpiredNegativeTest22() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingYearExpired(cardInfo);
+        var cardInfo = DataHelper.getCardInfoExpiredYear();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorYearExpired();
 
     }
@@ -292,8 +291,8 @@ public class CardTest {
     public void shouldBuyByPaymentOwnerEmptyNegativeTest23() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingOwnerEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyOwner();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorOwnerEmpty();
 
     }
@@ -302,8 +301,8 @@ public class CardTest {
     public void shouldBuyByPaymentOwnerEmptyNegativeTest24() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingOwnerEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyOwner();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorOwnerEmpty();
 
     }
@@ -312,8 +311,8 @@ public class CardTest {
     public void shouldBuyByPaymentOwnerNumbersNegativeTest25() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingOwnerNumbers(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNumbersOwner();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorOwnerNumber();
 
     }
@@ -322,8 +321,8 @@ public class CardTest {
     public void shouldBuyByCreditOwnerNumbersNegativeTest26() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingOwnerNumbers(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNumbersOwner();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorOwnerNumber();
 
     }
@@ -332,8 +331,8 @@ public class CardTest {
     public void shouldBuyByPaymentOwnerSpecialSymbolsNegativeTest27() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingOwnerSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInOwner();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorOwnerNumber();
 
     }
@@ -342,8 +341,8 @@ public class CardTest {
     public void shouldBuyByCreditOwnerSpecialSymbolsNegativeTest28() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingOwnerSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInOwner();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorOwnerNumber();
 
     }
@@ -352,8 +351,8 @@ public class CardTest {
     public void shouldBuyByPaymentCVCEmptyNegativeTest29() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCVCEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyCVC();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCVCEmpty();
 
     }
@@ -362,8 +361,8 @@ public class CardTest {
     @Test
     public void shouldBuyByCreditCVCEmptyNegativeTest30() {
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCVCEmpty(cardInfo);
+        var cardInfo = DataHelper.getCardInfoEmptyCVC();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCVCEmpty();
 
     }
@@ -372,8 +371,8 @@ public class CardTest {
     public void shouldBuyByPaymentCVCNullNegativeTest31() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCVCNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullCVC();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCVCNotValid();
 
     }
@@ -382,8 +381,8 @@ public class CardTest {
     public void shouldBuyByCreditCVCNullNegativeTest32() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCVCNull(cardInfo);
+        var cardInfo = DataHelper.getCardInfoNullCVC();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCVCNotValid();
 
     }
@@ -392,8 +391,8 @@ public class CardTest {
     public void shouldBuyByPaymentCVCSpecialSymbolsNegativeTest33() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCVCSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInCVC();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCVCNotValid();
 
     }
@@ -402,8 +401,8 @@ public class CardTest {
     public void shouldBuyByCreditCVCSpecialSymbolsNegativeTest34() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCVCSpecialSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoSpecialSymbolsInCVC();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCVCNotValid();
 
     }
@@ -412,8 +411,8 @@ public class CardTest {
     public void shouldBuyByPaymentCVCSpecialSymbolsNegativeTest35() {
 
         var paymentPage = new StartPage().goToPaymentPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        paymentPage.fillingCVCLessSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoLessSymbolsInCVC();
+        paymentPage.fillingCardForm(cardInfo);
         paymentPage.getErrorCVCNotValid();
 
     }
@@ -422,8 +421,8 @@ public class CardTest {
     public void shouldBuyByCreditCVCSpecialSymbolsNegativeTest36() {
 
         var creditPage = new StartPage().goToCreditPage();
-        var cardInfo = DataHelper.getValidCardInfo();
-        creditPage.fillingCVCLessSymbols(cardInfo);
+        var cardInfo = DataHelper.getCardInfoLessSymbolsInCVC();
+        creditPage.fillingCardForm(cardInfo);
         creditPage.getErrorCVCNotValid();
 
     }
