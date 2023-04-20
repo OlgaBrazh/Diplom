@@ -110,11 +110,11 @@ public class CreditPage {
     }
 
     public void fillingCardForm(DataHelper.CardInfo info) {
-        cardNumberField.setValue(DataHelper.getValidCard1Number());
-        monthField.setValue(DataHelper.getValidMonth());
-        yearField.setValue(DataHelper.getValidYear());
-        ownerField.setValue(DataHelper.getOwner());
-        CVCField.setValue(DataHelper.generateCVC());
+        cardNumberField.setValue(info.getCardNumber());
+        monthField.setValue(info.getMonth());
+        yearField.setValue(info.getYear());
+        ownerField.setValue(info.getCardOwner());
+        CVCField.setValue(info.getCvc());
         buttonContinue.click();
     }
 }
