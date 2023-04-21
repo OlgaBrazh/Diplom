@@ -68,11 +68,6 @@ public class CardTest {
         paymentPage.getButtonRequestBank();
         paymentPage.getNotificationError();
 
-        //var transactionId = SQLHelper.getTransactionId();
-        //var paymentID = SQLHelper.getPaymentId();
-        //assertEquals(transactionId, paymentID);
-        //assertNull(paymentStatus);
-        //assertEquals(transactionId, paymentID);
 
     }
 
