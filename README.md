@@ -52,6 +52,8 @@ java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar artifac
 
 *версия Java: 11
 
-[План тестирования](https://github.com/OlgaBrazh/Diplom/blob/main/docs/Plan.md)
-[Отчет о проведенном тестировании](https://github.com/OlgaBrazh/Diplom/blob/main/docs/Report.md)
+[План тестирования](https://github.com/OlgaBrazh/Diplom/blob/main/docs/Plan.md)  
+
+[Отчет о проведенном тестировании](https://github.com/OlgaBrazh/Diplom/blob/main/docs/Report.md)  
+
 [Отчет о проведенной автоматизации](https://github.com/OlgaBrazh/Diplom/blob/main/docs/Summary.md)
