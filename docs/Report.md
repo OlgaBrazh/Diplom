@@ -28,4 +28,5 @@
    
 ## 5. Отчет Allure
 
-![Отчет Allure](img.png)
+
+![image](https://user-images.githubusercontent.com/102176272/233821806-9ffffd5f-a70f-4cc0-a53b-79d58cd1df73.png)
